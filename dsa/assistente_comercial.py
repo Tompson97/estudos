@@ -46,8 +46,6 @@ with st.sidebar:
     # Define o título da barra lateral
     st.title("🏓Sports Coder🏓")
     
-    # Mostra um texto explicativo sobre o assistente
-    #st.markdown("Sua missão é capacitar equipes de vendas, marketing, gestão e compras com orientações de alto impacto, precisas e prontas para execução.")
     
     # Campo para inserir a chave de API da Groq
     #groq_api_key = st.text_input(
@@ -57,20 +55,12 @@ with st.sidebar:
     #)
     
     
-    groq_api_key = "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"
-
+    groq_api_key = st.secrets["groq_credentials"]["token"]
+    
     # Adiciona linhas divisórias e explicações extras na barra lateral
     st.markdown("---")
     st.markdown("Sua missão é capacitar equipes de vendas, marketing, gestão e compras com orientações de alto impacto, precisas e prontas para execução.")
 
-    #st.markdown("---")
-    #st.markdown("Conheça os Cursos Individuais, Formações e Programas de Pós-Graduação da DSA:")
-
-    # Link para o site da DSA
-    #st.markdown("🔗 [Data Science Academy](https://www.datascienceacademy.com.br)")
-    
-    # Botão de link para enviar e-mail ao suporte da DSA
-    #st.link_button("✉️ E-mail Para o Suporte DSA no Caso de Dúvidas", "mailto:suporte@datascienceacademy.com.br")
 
 # Título principal do app
 st.title("Sports Coder")
