@@ -11,8 +11,8 @@ from groq import Groq
 
 # Configura a página do Streamlit com título, ícone, layout e estado inicial da sidebar
 st.set_page_config(
-    page_title="DSA AI Coder",
-    page_icon="🤖",
+    page_title="Sports Coder",
+    page_icon="🏓",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -32,7 +32,7 @@ REGRAS DE OPERAÇÃO:
     * **🧠 Explicação Conceitual & Diagnóstico**: Comece com uma visão clara sobre o problema ou oportunidade. Seja direto, didático e estratégico.
     * **🎯 Segmentação & Sazonalidade**: Diferencie a abordagem para o "Atleta de Performance" (foco em especificações técnicas e resultados) e o "Torcedor/Casual" (foco em estilo, paixão e pertencimento). Sempre considere o calendário esportivo atual (campeonatos, Olimpíadas, pré-temporada).
     * **⚡ Plano de Ação 48h (Execução)**: Liste 3 ações práticas e imediatas que a equipe pode implementar para ver resultados rápidos (ex: ajuste de copy, automação de carrinho abandonado ou banner de urgência).
-    * **📢 Tom de Voz**: Profissional, motivador, focado em dados e voltado para a superação de metas.
+    * **📢 Tom de Voz**: Profissional, voltado para a superação de metas.
     * **📚 Documentação de Referência**: Ao final, inclua uma seção chamada "Documentação de Referência", onde você deve citar obrigatoriamente um insight ou caso real de sucesso inspirado em gigantes do setor (Ex: Estratégia DTC da Nike, logística da Amazon/Netshoes, branding da Adidas ou tendências da WGSN/IHRSA).
 
 3. **Gestão de Objeções**: Sempre que sugerir uma estratégia de vendas, inclua uma breve dica de como contornar objeções comuns do setor (ex: "o frete está caro", "tenho medo do tamanho não servir" ou "o suplemento é confiável?").
@@ -44,39 +44,42 @@ REGRAS DE OPERAÇÃO:
 with st.sidebar:
     
     # Define o título da barra lateral
-    st.title("🤖 Sports AI Coder")
+    st.title("🏓Sports Coder🏓")
     
     # Mostra um texto explicativo sobre o assistente
-    st.markdown("Um assistente de IA focado em E-commerce do segmento esportivo.")
+    #st.markdown("Sua missão é capacitar equipes de vendas, marketing, gestão e compras com orientações de alto impacto, precisas e prontas para execução.")
     
     # Campo para inserir a chave de API da Groq
-    groq_api_key = st.text_input(
-        "Insira sua API Key Groq", 
-        type="password",
-        help="Obtenha sua chave em https://console.groq.com/keys"
-    )
+    #groq_api_key = st.text_input(
+    #    "Insira sua API Key Groq", 
+    #    type="password",
+    #    help="Obtenha sua chave em https://console.groq.com/keys"
+    #)
+    
+    
+    groq_api_key = "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"
 
     # Adiciona linhas divisórias e explicações extras na barra lateral
     st.markdown("---")
-    st.markdown("Desenvolvido para auxiliar em suas dúvidas de programação com Linguagem Python. IA pode cometer erros. Sempre verifique as respostas.")
+    st.markdown("Sua missão é capacitar equipes de vendas, marketing, gestão e compras com orientações de alto impacto, precisas e prontas para execução.")
 
-    st.markdown("---")
-    st.markdown("Conheça os Cursos Individuais, Formações e Programas de Pós-Graduação da DSA:")
+    #st.markdown("---")
+    #st.markdown("Conheça os Cursos Individuais, Formações e Programas de Pós-Graduação da DSA:")
 
     # Link para o site da DSA
-    st.markdown("🔗 [Data Science Academy](https://www.datascienceacademy.com.br)")
+    #st.markdown("🔗 [Data Science Academy](https://www.datascienceacademy.com.br)")
     
     # Botão de link para enviar e-mail ao suporte da DSA
-    st.link_button("✉️ E-mail Para o Suporte DSA no Caso de Dúvidas", "mailto:suporte@datascienceacademy.com.br")
+    #st.link_button("✉️ E-mail Para o Suporte DSA no Caso de Dúvidas", "mailto:suporte@datascienceacademy.com.br")
 
 # Título principal do app
-st.title("Data Science Academy - DSA AI Coder")
+st.title("Sports Coder")
 
 # Subtítulo adicional
-st.title("Assistente Pessoal de Programação Python 🐍")
+st.title("Um assistente de IA sênior e consultor estratégico especializado exclusivamente no mercado de artigos esportivos")
 
 # Texto auxiliar abaixo do título
-st.caption("Faça sua pergunta sobre a Linguagem Python e obtenha código, explicações e referências.")
+st.caption("Transforme suas dúvidas em estratégias de crescimento. O que vamos acelerar hoje?")
 
 # Inicializa o histórico de mensagens na sessão, caso ainda não exista
 if "messages" not in st.session_state:
@@ -109,7 +112,7 @@ elif st.session_state.messages:
      st.warning("Por favor, insira sua API Key da Groq na barra lateral para continuar.")
 
 # Captura a entrada do usuário no chat
-if prompt := st.chat_input("Qual sua dúvida sobre Python?"):
+if prompt := st.chat_input("Sua inteligência de negócios, sob demanda. Qual o desafio de hoje?"):
     
     # Se não houver cliente válido, mostra aviso e para a execução
     if not client:
@@ -156,12 +159,12 @@ if prompt := st.chat_input("Qual sua dúvida sobre Python?"):
             # Caso ocorra erro na comunicação com a API, exibe mensagem de erro
             except Exception as e:
                 st.error(f"Ocorreu um erro ao se comunicar com a API da Groq: {e}")
-
+                
 st.markdown(
     """
     <div style="text-align: center; color: gray;">
         <hr>
-        <p>DSA AI Coder - Parte Integrante do Curso Gratuito Fundamentos de Linguagem Python da Data Science Academy</p>
+        <p>IA pode cometer erros. Sempre verifique as respostas.</p>
     </div>
     """,
     unsafe_allow_html=True
