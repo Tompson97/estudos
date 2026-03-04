@@ -55,7 +55,7 @@ with st.sidebar:
     #)
     
     
-    groq_api_key = "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"
+    groq_api_key = st.secrets["groq_credentials"]["token"]
     
     # Adiciona linhas divisórias e explicações extras na barra lateral
     st.markdown("---")
