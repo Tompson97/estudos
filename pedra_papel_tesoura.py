@@ -62,7 +62,7 @@ def gamer_over():
         else:
             clear_terminal()
             encerrar_jogo()
-            input("Pressione qualquer tecla para sair")
+            input("Pressione qualquer tecla para sair.")
             sys.exit()
 
 while(True):
