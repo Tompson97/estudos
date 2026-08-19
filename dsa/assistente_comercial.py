@@ -54,11 +54,11 @@ with st.sidebar:
     #    help="Obtenha sua chave em https://console.groq.com/keys"
     #)
     
-  groq_api_key = st.text_input(
-        "Insira sua API Key Groq", 
-        type="password",
-        help="Obtenha sua chave em https://console.groq.com/keys"
-    )
+      groq_api_key = st.text_input(
+            "Insira sua API Key Groq", 
+            type="password",
+            help="Obtenha sua chave em https://console.groq.com/keys"
+        )
 
     # groq_api_key = st.secrets["groq_credentials"]["token"]
     
