@@ -1,7 +1,8 @@
-# Projeto - Fisio Virtual
+# ============================================================
+# FISIO VIRTUAL
 # Assistente de Exercício Físico e Prevenção Cardiovascular
+# ============================================================
 
-import os
 import streamlit as st
 from groq import Groq
 
@@ -24,8 +25,8 @@ st.set_page_config(
 
 CUSTOM_PROMPT = """
 Você é o "Fisio Virtual", um assistente virtual especializado em
-educação em saúde, exercício físico, mobilidade, condicionamento físico
-e prevenção cardiovascular.
+educação em saúde, exercício físico, mobilidade, condicionamento
+físico e prevenção cardiovascular.
 
 Sua missão é ajudar usuários a compreender a importância da atividade
 física, desenvolver hábitos mais saudáveis e obter orientações gerais
@@ -41,94 +42,280 @@ habilitado.
 Você não deve realizar diagnósticos, prescrever medicamentos, alterar
 tratamentos médicos ou garantir resultados terapêuticos.
 
+
 REGRAS DE OPERAÇÃO:
 
-1. **🎯 FOCO EM EXERCÍCIO FÍSICO E PREVENÇÃO CARDIOVASCULAR**
+1. FOCO EM EXERCÍCIO FÍSICO E PREVENÇÃO CARDIOVASCULAR
 
 Responda prioritariamente a questões relacionadas a:
 
-    * Exercício físico e atividade física.
-    * Condicionamento cardiorrespiratório.
-    * Fortalecimento muscular.
-    * Mobilidade e flexibilidade.
-    * Equilíbrio e funcionalidade.
-    * Redução do comportamento sedentário.
-    * Hábitos relacionados à prevenção cardiovascular.
-    * Aquecimento e recuperação.
-    * Progressão gradual dos exercícios.
-    * Percepção de esforço e intensidade do exercício.
-    * Criação e manutenção de uma rotina de atividade física.
+- Exercício físico e atividade física.
+- Condicionamento cardiorrespiratório.
+- Fortalecimento muscular.
+- Mobilidade e flexibilidade.
+- Equilíbrio e funcionalidade.
+- Redução do comportamento sedentário.
+- Hábitos relacionados à prevenção cardiovascular.
+- Aquecimento e recuperação.
+- Progressão gradual dos exercícios.
+- Percepção de esforço e intensidade do exercício.
+- Criação e manutenção de uma rotina de atividade física.
 
-2. **🛡️ SEGURANÇA CLÍNICA**
 
-Antes de fornecer uma orientação mais específica, considere informações
-como idade, nível de atividade física, objetivo, histórico de lesões,
-cirurgias recentes e condições cardiovasculares previamente diagnosticadas.
+2. ESTRUTURA DAS RESPOSTAS
 
-3. **🚨 SINAIS DE ALERTA**
+Sempre que apropriado, organize a resposta utilizando:
 
-Se o usuário relatar dor ou pressão no peito, falta de ar intensa,
-desmaio, tontura intensa, palpitações associadas a mal-estar,
-confusão mental, fraqueza súbita ou sintomas neurológicos súbitos,
-não incentive a continuidade do exercício.
+🧠 Explicação e Contexto:
+Explique de forma clara e didática o problema ou conceito apresentado.
 
-Oriente o usuário a interromper a atividade e buscar atendimento
-profissional adequado.
+🎯 Objetivo:
+Identifique o principal objetivo do usuário.
 
-4. **❤️ PREVENÇÃO CARDIOVASCULAR**
+🏃 Orientação Prática:
+Apresente orientações gerais e exercícios compatíveis com as
+informações fornecidas.
 
-Considere atividade física regular, redução do comportamento sedentário,
-sono adequado, alimentação equilibrada, controle da pressão arterial,
-glicemia e colesterol, além do acompanhamento com profissionais de saúde.
+📈 Progressão:
+Explique como aumentar gradualmente duração, frequência, volume
+ou intensidade.
 
-5. **🏃 ORIENTAÇÃO SOBRE EXERCÍCIOS**
+⚠️ Segurança:
+Informe cuidados importantes e sinais que indiquem necessidade
+de interromper a atividade ou procurar avaliação profissional.
+
+🔄 Próximo Passo:
+Sugira uma ação simples que o usuário possa realizar.
+
+
+3. SEGURANÇA CLÍNICA
+
+Antes de fornecer uma orientação mais específica, considere:
+
+- Idade.
+- Nível atual de atividade física.
+- Objetivo.
+- Frequência de exercícios.
+- Histórico de lesões.
+- Cirurgias recentes.
+- Condições cardiovasculares previamente diagnosticadas.
+- Outras condições de saúde relevantes.
+- Uso de medicamentos que possam alterar frequência cardíaca,
+  pressão arterial ou resposta ao exercício.
+
+Quando essas informações forem importantes para determinar a segurança
+de uma orientação, faça perguntas complementares.
+
+
+4. SINAIS DE ALERTA
+
+Se o usuário relatar sintomas potencialmente graves durante ou depois
+da prática de exercícios, NÃO incentive a continuidade da atividade.
+
+Tenha atenção especial para:
+
+- Dor ou pressão no peito.
+- Falta de ar intensa ou inesperada.
+- Desmaio ou perda de consciência.
+- Tontura intensa.
+- Palpitações acompanhadas de mal-estar.
+- Confusão mental.
+- Fraqueza súbita.
+- Sintomas neurológicos súbitos.
+
+Quando houver sinais de alerta, recomende interromper a atividade
+e buscar atendimento profissional adequado.
+
+Em situações potencialmente emergenciais, oriente o usuário a buscar
+o serviço de emergência de sua região.
+
+
+5. PREVENÇÃO CARDIOVASCULAR
+
+Considere:
+
+- Atividade física regular.
+- Redução do comportamento sedentário.
+- Sono adequado.
+- Alimentação equilibrada.
+- Controle da pressão arterial.
+- Acompanhamento de glicemia e colesterol.
+- Não fumar.
+- Controle de fatores de risco.
+- Acompanhamento periódico com profissionais de saúde.
+
+Não prometa que exercícios isoladamente irão prevenir, curar ou tratar
+uma doença cardiovascular específica.
+
+
+6. INTENSIDADE DO EXERCÍCIO
+
+Ao explicar intensidade, utilize ferramentas educativas como:
+
+- Percepção subjetiva de esforço.
+- Teste da fala.
+- Frequência cardíaca, quando apropriado.
+- Duração da atividade.
+- Frequência semanal.
+
+Explique que a frequência cardíaca pode variar significativamente
+entre indivíduos.
+
+Não utilize uma fórmula de frequência cardíaca como determinação
+clínica individual.
+
+
+7. ORIENTAÇÃO SOBRE EXERCÍCIOS
 
 Quando sugerir um exercício, procure apresentar:
 
-    * Nome do exercício.
-    * Objetivo.
-    * Como executar.
-    * Principais cuidados.
-    * Alternativa mais fácil.
-    * Alternativa mais difícil, quando apropriado.
-    * Como perceber se a intensidade está adequada.
+- Nome do exercício.
+- Objetivo.
+- Como executar.
+- Principais cuidados.
+- Alternativa mais fácil.
+- Alternativa mais difícil, quando apropriado.
+- Como perceber se a intensidade está adequada.
 
-6. **📈 PROGRESSÃO SEGURA**
+Evite recomendar exercícios complexos sem explicar sua execução.
 
-Favoreça sempre uma progressão gradual de carga, volume, frequência,
-duração e intensidade.
 
-7. **🚫 LIMITES DO ASSISTENTE**
+8. INDIVIDUALIZAÇÃO
+
+Sempre que possível, diferencie:
+
+Iniciante:
+Pessoa sedentária ou com pouca experiência.
+
+Intermediário:
+Pessoa que pratica exercícios regularmente.
+
+Avançado:
+Pessoa com experiência consistente em treinamento.
+
+Considere também objetivos como:
+
+- Saúde cardiovascular.
+- Condicionamento físico.
+- Fortalecimento muscular.
+- Mobilidade.
+- Equilíbrio.
+- Redução do sedentarismo.
+- Retorno gradual à atividade física.
+- Prevenção de lesões.
+
+
+9. PROGRESSÃO SEGURA
+
+Favoreça sempre uma progressão gradual.
+
+Não incentive aumentos bruscos de:
+
+- Carga.
+- Volume.
+- Frequência.
+- Duração.
+- Intensidade.
+
+Considere adaptação individual e recuperação.
+
+
+10. TRIAGEM
+
+Quando o usuário solicitar uma orientação personalizada,
+faça perguntas quando necessário.
+
+Exemplos:
+
+- Qual é sua idade?
+- Qual é seu objetivo principal?
+- Você pratica exercícios atualmente?
+- Quantas vezes por semana?
+- Há quanto tempo?
+- Possui alguma lesão?
+- Possui alguma condição cardiovascular diagnosticada?
+- Está retornando aos exercícios depois de cirurgia ou afastamento?
+- Você sente algum sintoma durante o exercício?
+
+
+11. LIMITES DO ASSISTENTE
 
 O Fisio Virtual NÃO deve:
 
-    * Diagnosticar doenças.
-    * Prescrever medicamentos.
-    * Recomendar alteração de medicamentos.
-    * Garantir resultados terapêuticos.
-    * Declarar que uma pessoa está clinicamente apta para exercício
-      sem avaliação adequada.
-    * Substituir avaliação presencial.
+- Diagnosticar doenças.
+- Prescrever medicamentos.
+- Recomendar alteração de medicamentos.
+- Garantir resultados terapêuticos.
+- Declarar que uma pessoa está clinicamente apta para exercício
+  sem avaliação adequada.
+- Substituir avaliação presencial.
+- Diagnosticar lesões apenas por sintomas.
 
-8. **🗣️ TOM DE VOZ**
 
-Utilize um tom profissional, empático, didático, motivador,
-claro e baseado em evidências.
+12. ENCAMINHAMENTO PROFISSIONAL
 
-9. **🎓 OBJETIVO EDUCACIONAL**
+Recomende avaliação com profissional habilitado quando:
 
-O objetivo principal é ensinar o usuário a compreender por que
-determinado exercício é importante, como executá-lo, como controlar
-a intensidade, como desenvolver consistência e quando procurar
-ajuda profissional.
+- O usuário apresentar sintomas persistentes.
+- Existirem sinais de alerta.
+- Houver histórico cardiovascular relevante.
+- O usuário estiver retornando após cirurgia.
+- Existir uma lesão significativa.
+- Houver dor persistente ou progressiva.
+- O usuário apresentar limitação funcional importante.
+
+
+13. BASE CIENTÍFICA
+
+Priorize conhecimentos provenientes de:
+
+- Diretrizes de organizações de saúde.
+- Diretrizes de sociedades profissionais.
+- Órgãos oficiais de saúde pública.
+- Revisões sistemáticas.
+- Literatura científica de qualidade.
+
+Não apresente opiniões de influenciadores como evidência científica.
+
+
+14. TOM DE VOZ
+
+Utilize um tom:
+
+- Profissional.
+- Empático.
+- Didático.
+- Motivador.
+- Claro.
+- Baseado em evidências.
+- Acessível para pessoas sem formação na área.
+
+Evite linguagem excessivamente técnica ou alarmista.
+
+
+15. OBJETIVO EDUCACIONAL
+
+O objetivo principal é ensinar o usuário a compreender:
+
+- Por que determinado exercício é importante.
+- Como executar movimentos.
+- Como controlar a intensidade.
+- Como desenvolver consistência.
+- Como progredir gradualmente.
+- Quando procurar ajuda profissional.
+
+
+16. LIMITAÇÃO
 
 As respostas possuem caráter educacional e não substituem avaliação
 realizada por profissional de saúde.
+
+Nunca apresente uma orientação como diagnóstico ou prescrição clínica.
 """
 
 
 # ============================================================
-# ESTADO INICIAL DA APLICAÇÃO
+# INICIALIZAÇÃO DO SESSION STATE
 # ============================================================
 
 if "api_validated" not in st.session_state:
@@ -140,12 +327,9 @@ if "groq_api_key" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-if "api_error" not in st.session_state:
-    st.session_state.api_error = ""
-
 
 # ============================================================
-# FUNÇÃO PARA VALIDAR A API KEY
+# FUNÇÃO PARA VALIDAR API KEY
 # ============================================================
 
 def validar_api_key(api_key):
@@ -154,11 +338,12 @@ def validar_api_key(api_key):
 
         client = Groq(api_key=api_key)
 
-        # Faz uma chamada extremamente simples apenas para validar
-        # se a chave permite acesso à API.
+        # Consulta os modelos disponíveis.
+        # Essa chamada é usada somente para verificar a validade
+        # e autorização da chave.
         client.models.list()
 
-        return True, ""
+        return True, None
 
     except Exception as e:
 
@@ -166,99 +351,212 @@ def validar_api_key(api_key):
 
 
 # ============================================================
-# TELA DE BLOQUEIO DA APLICAÇÃO
+# TELA DE AUTENTICAÇÃO
 # ============================================================
 
 if not st.session_state.api_validated:
 
     # --------------------------------------------------------
-    # CSS DO FUNDO DESFOCADO
+    # FUNDO DESFOCADO
+    # --------------------------------------------------------
+    #
+    # IMPORTANTE:
+    # Não usamos "filter: blur()" no .stApp.
+    #
+    # Em vez disso, usamos uma camada independente sobre a
+    # aplicação. A janela de autenticação fica acima dela.
     # --------------------------------------------------------
 
     st.markdown(
         """
         <style>
 
-        /* Desfoca e escurece a aplicação */
-        .stApp {
-            filter: blur(5px);
-            pointer-events: none;
-            user-select: none;
-        }
+        /* ==================================================
+           OVERLAY
+           ================================================== */
 
-        /* Cria uma camada escura sobre a aplicação */
-        .stApp::before {
-            content: "";
+        .login-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.55);
-            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+
+            background: rgba(10, 20, 30, 0.65);
+
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+            z-index: 9998;
         }
 
-        /* Caixa central */
-        .api-modal {
+
+        /* ==================================================
+           MODAL
+           ================================================== */
+
+        .login-modal {
+
             position: fixed;
+
             top: 50%;
             left: 50%;
+
             transform: translate(-50%, -50%);
+
             width: 520px;
-            max-width: 90%;
-            background: white;
+            max-width: 90vw;
+
             padding: 40px;
+
+            background: #ffffff;
+
             border-radius: 20px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
-            z-index: 1000;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45);
+
+            z-index: 9999;
+
             text-align: center;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
         }
 
-        .api-icon {
-            font-size: 55px;
-            margin-bottom: 10px;
+
+        /* ==================================================
+           ÍCONE
+           ================================================== */
+
+        .login-icon {
+
+            width: 80px;
+            height: 80px;
+
+            margin: 0 auto 20px auto;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #f1f8f5;
+
+            font-size: 42px;
         }
 
-        .api-title {
-            font-size: 28px;
+
+        /* ==================================================
+           TÍTULO
+           ================================================== */
+
+        .login-title {
+
+            font-size: 30px;
+
             font-weight: 700;
-            color: #222;
+
+            color: #1f2937;
+
+            margin-bottom: 12px;
+        }
+
+
+        /* ==================================================
+           DESCRIÇÃO
+           ================================================== */
+
+        .login-description {
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            color: #6b7280;
+
             margin-bottom: 10px;
         }
 
-        .api-description {
-            font-size: 15px;
-            color: #666;
+
+        /* ==================================================
+           INFORMAÇÃO
+           ================================================== */
+
+        .login-info {
+
+            margin-top: 18px;
+
+            padding: 12px 15px;
+
+            border-radius: 10px;
+
+            background: #f8fafc;
+
+            color: #64748b;
+
+            font-size: 13px;
+
             line-height: 1.5;
-            margin-bottom: 20px;
+        }
+
+
+        /* ==================================================
+           RESPONSIVIDADE
+           ================================================== */
+
+        @media (max-width: 600px) {
+
+            .login-modal {
+
+                width: 90vw;
+
+                padding: 28px 20px;
+            }
+
+            .login-title {
+
+                font-size: 24px;
+            }
+
         }
 
         </style>
-        """,
-        unsafe_allow_html=True
-    )
 
+        <div class="login-overlay"></div>
 
-    # --------------------------------------------------------
-    # CAIXA DE AUTENTICAÇÃO
-    # --------------------------------------------------------
+        <div class="login-modal">
 
-    st.markdown(
-        """
-        <div class="api-modal">
+            <div class="login-icon">
+                ❤️
+            </div>
 
-            <div class="api-icon">❤️</div>
-
-            <div class="api-title">
+            <div class="login-title">
                 Bem-vindo ao Fisio Virtual
             </div>
 
-            <div class="api-description">
-                Para iniciar o assistente, informe sua
+            <div class="login-description">
+
+                Para utilizar o assistente, informe sua
                 <strong>API Key da Groq</strong>.
-                <br><br>
-                A chave será utilizada para conectar o aplicativo
-                ao modelo de inteligência artificial.
+
+                <br>
+
+                A chave será validada antes de liberar
+                o acesso ao aplicativo.
+
+            </div>
+
+            <div class="login-info">
+
+                🔐 A chave é utilizada para conectar o
+                aplicativo ao serviço de inteligência artificial.
+
             </div>
 
         </div>
@@ -267,28 +565,36 @@ if not st.session_state.api_validated:
     )
 
 
-    # --------------------------------------------------------
+    # ========================================================
     # CAMPO DE API KEY
-    # --------------------------------------------------------
+    # ========================================================
 
-    # Coloca o formulário visualmente próximo ao centro
-    col1, col2, col3 = st.columns([1, 2, 1])
+    # O formulário fica centralizado na tela.
+    # O modal HTML permanece sobre o conteúdo.
+    col_esq, col_centro, col_dir = st.columns(
+        [1, 2, 1]
+    )
 
-    with col2:
+    with col_centro:
 
-        st.markdown("<br><br><br><br><br><br>", unsafe_allow_html=True)
+        # Espaçamento para posicionar os controles próximos
+        # da janela visual.
+        st.markdown(
+            "<div style='height: 330px'></div>",
+            unsafe_allow_html=True
+        )
 
         api_key_input = st.text_input(
             "🔑 API Key da Groq",
             type="password",
             placeholder="Cole sua API Key aqui",
-            help="Sua chave pode ser obtida no console da Groq."
+            label_visibility="visible"
         )
 
 
-        # ----------------------------------------------------
-        # BOTÃO DE VALIDAÇÃO
-        # ----------------------------------------------------
+        # ====================================================
+        # BOTÃO
+        # ====================================================
 
         if st.button(
             "🔓 Validar e entrar",
@@ -304,60 +610,72 @@ if not st.session_state.api_validated:
 
             else:
 
-                with st.spinner("Validando sua API Key..."):
+                with st.spinner(
+                    "Validando sua API Key..."
+                ):
 
-                    valido, erro = validar_api_key(api_key_input)
+                    valido, erro = validar_api_key(
+                        api_key_input
+                    )
 
 
                 if valido:
 
-                    # Guarda a chave na sessão
+                    # Salva a chave somente na sessão atual
                     st.session_state.groq_api_key = api_key_input
 
                     # Libera aplicação
                     st.session_state.api_validated = True
 
-                    # Remove erro anterior
-                    st.session_state.api_error = ""
-
-                    # Atualiza a interface
+                    # Recarrega a página
                     st.rerun()
 
                 else:
 
-                    st.session_state.api_error = erro
-
                     st.error(
-                        "❌ API Key inválida ou não autorizada. "
-                        "Verifique a chave e tente novamente."
+                        "❌ Não foi possível validar a API Key."
                     )
 
+                    st.caption(
+                        "Verifique se a chave está correta, "
+                        "ativa e possui acesso à API da Groq."
+                    )
+
+
+    # ========================================================
+    # RODAPÉ DA TELA DE LOGIN
+    # ========================================================
 
     st.markdown(
         """
         <div style="
             position: fixed;
-            bottom: 20px;
+            bottom: 18px;
             left: 0;
             width: 100%;
             text-align: center;
-            color: #777;
+            color: #ffffff;
             font-size: 13px;
-            z-index: 1001;
+            z-index: 10000;
         ">
-            🔐 Sua API Key é utilizada somente durante esta sessão.
+
+            Fisio Virtual • Acesso protegido por API Key
+
         </div>
         """,
         unsafe_allow_html=True
     )
 
 
-    # Impede que o restante da aplicação seja executado
+    # ========================================================
+    # BLOQUEIA O RESTANTE DA APLICAÇÃO
+    # ========================================================
+
     st.stop()
 
 
 # ============================================================
-# APLICAÇÃO LIBERADA
+# API VALIDADA
 # ============================================================
 
 groq_api_key = st.session_state.groq_api_key
@@ -380,6 +698,8 @@ except Exception as e:
     )
 
     st.session_state.api_validated = False
+
+    st.session_state.groq_api_key = ""
 
     st.stop()
 
@@ -422,9 +742,9 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # --------------------------------------------------------
-    # BOTÃO PARA TROCAR API KEY
-    # --------------------------------------------------------
+    # ========================================================
+    # TROCAR API KEY
+    # ========================================================
 
     if st.button(
         "🔑 Trocar API Key",
@@ -432,33 +752,38 @@ with st.sidebar:
     ):
 
         st.session_state.api_validated = False
+
         st.session_state.groq_api_key = ""
 
         st.rerun()
 
 
 # ============================================================
-# INTERFACE PRINCIPAL
+# CABEÇALHO PRINCIPAL
 # ============================================================
 
 st.title("❤️ Fisio Virtual")
 
 st.subheader(
-    "Assistente virtual de exercício físico e prevenção cardiovascular"
+    "Assistente virtual de exercício físico "
+    "e prevenção cardiovascular"
 )
 
 st.caption(
-    "Orientação educacional para uma vida mais ativa, saudável e segura."
+    "Orientação educacional para uma vida mais "
+    "ativa, saudável e segura."
 )
 
 
 # ============================================================
-# HISTÓRICO DE MENSAGENS
+# HISTÓRICO DA CONVERSA
 # ============================================================
 
 for message in st.session_state.messages:
 
-    with st.chat_message(message["role"]):
+    with st.chat_message(
+        message["role"]
+    ):
 
         st.markdown(
             message["content"]
@@ -466,14 +791,17 @@ for message in st.session_state.messages:
 
 
 # ============================================================
-# CHAT
+# CAMPO DE CHAT
 # ============================================================
 
 if prompt := st.chat_input(
     "Como posso ajudar com seus exercícios e sua saúde?"
 ):
 
-    # Salva pergunta
+    # --------------------------------------------------------
+    # SALVA PERGUNTA
+    # --------------------------------------------------------
+
     st.session_state.messages.append(
         {
             "role": "user",
@@ -482,13 +810,19 @@ if prompt := st.chat_input(
     )
 
 
-    # Exibe pergunta
+    # --------------------------------------------------------
+    # EXIBE PERGUNTA
+    # --------------------------------------------------------
+
     with st.chat_message("user"):
 
         st.markdown(prompt)
 
 
-    # Prepara mensagens
+    # --------------------------------------------------------
+    # PREPARA MENSAGENS
+    # --------------------------------------------------------
+
     messages_for_api = [
         {
             "role": "system",
@@ -502,7 +836,10 @@ if prompt := st.chat_input(
         messages_for_api.append(msg)
 
 
-    # Resposta da IA
+    # --------------------------------------------------------
+    # RESPOSTA DO ASSISTENTE
+    # --------------------------------------------------------
+
     with st.chat_message("assistant"):
 
         with st.spinner(
@@ -511,18 +848,21 @@ if prompt := st.chat_input(
 
             try:
 
-                chat_completion = client.chat.completions.create(
+                chat_completion = (
+                    client.chat.completions.create(
 
-                    messages=messages_for_api,
+                        messages=messages_for_api,
 
-                    model="openai/gpt-oss-20b",
+                        model="openai/gpt-oss-20b",
 
-                    temperature=0.4,
+                        temperature=0.4,
 
-                    max_tokens=2048,
+                        max_tokens=2048,
+                    )
                 )
 
 
+                # Extrai resposta
                 resposta = (
                     chat_completion
                     .choices[0]
@@ -531,6 +871,7 @@ if prompt := st.chat_input(
                 )
 
 
+                # Exibe resposta
                 st.markdown(resposta)
 
 
@@ -560,13 +901,14 @@ st.markdown(
     <div style="
         text-align: center;
         color: gray;
-        margin-top: 40px;
+        margin-top: 50px;
     ">
 
         <hr>
 
         <p>
-            ❤️ Fisio Virtual — Educação em exercício físico
+            ❤️ <strong>Fisio Virtual</strong>
+            — Educação em exercício físico
             e prevenção cardiovascular.
         </p>
 
